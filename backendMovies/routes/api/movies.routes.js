@@ -12,6 +12,18 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/:movieTitle", async (req, res) => {
+    try{
+        console.log(req.params.movieTitle);
+        const movies = await Movie.find({
+            title: req.params.movieTitle
+        });
+        res.json(movies);
+    }catch(error){
+        res.status(500).json({error: "Ha fallado al inserccion"});
+    }
+});
+
 router.post("/", async (req, res) => {
     try{
         const newMovie = await Movie.create(req.body);

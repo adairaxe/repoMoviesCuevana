@@ -1,42 +1,15 @@
 <script>
-    import axios from "axios";
 
-    let moviesOfMongo = [];
-    const url = "http://127.0.0.1:3000/api/movies/";
+  import requestAxios , { moviesOfMongo } from "../../requestAxios/getAll.svelte"
 
-    const getMovies = async () => {
-        try{
-            let response = await axios.get(url)
-            moviesOfMongo = response.data
-            console.log(moviesOfMongo);
-        }catch(e){
-            console.log(e);
-        }
-    }
-
-    const changeMovie = async (movieID) => {
-        try{
-            const updatedData = {
-                title: "Nuevo título",
-                Year: 2023
-            };
-            let response = await axios.put(url+`${movieID}` , updatedData);
-            console.log(response);
-        }catch(e){
-            console.log(e);
-        }
-    }
-
-    const deleteMovie = async (movieID) => {
+    /* const deleteMovie = async (movieID) => {
         try {
             const response = await axios.delete(url+`${movieID}`);
             console.log(response.data);
         } catch (error) {
             console.error(error);
         }
-    }
-
-    getMovies();
+    } */
 
 </script>
 

@@ -1,5 +1,6 @@
 <script>
   import axios from "axios";
+  import Post , { loadMovie } from "../../requestAxios/post.svelte";
 
   let requed_films = [];
   let input_word;
@@ -19,7 +20,7 @@
     }
   }
 
-  const loadMovie = async (titleOfMovie) => {
+  /* const loadMovie = async (titleOfMovie) => {
     try{
       let movieToSave = requed_films.find((element) => element.Title == titleOfMovie)
       const body = {
@@ -34,7 +35,7 @@
     }catch(e){
         console.log(e);
     }
-  }
+  } */
 
 </script>
 
@@ -53,7 +54,7 @@
         <h2>{movie.Title}</h2>
         <p>{movie.Year}</p>
         <p>{movie.Type}</p>
-        <button on:click={() => loadMovie(`${movie.Title}`)}>Guardar a repositorio</button>
+        <button on:click={() => loadMovie(`${movie.Title}` , requed_films)}>Guardar a repositorio</button>
       </div>
       {/each}
     {:else}

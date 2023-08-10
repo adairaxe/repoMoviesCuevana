@@ -2,34 +2,26 @@
 
   import requestAxios , { moviesOfMongo } from "../../requestAxios/getAll.svelte"
 
-    /* const deleteMovie = async (movieID) => {
-        try {
-            const response = await axios.delete(url+`${movieID}`);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    } */
-
 </script>
 
 <main>
-    <div class="container-movies">
-        {#if moviesOfMongo !== undefined}
-          {#each moviesOfMongo as movie}
-          <div class="movie-card">
-            <a href= "./movie/${movie.title}">
-                <img alt="" src="{movie.Poster}">
-                <h2>{movie.title}</h2>
-                <p>{movie.Year}</p>
-                <p>{movie.Type}</p>
-            </a> 
-          </div>
-          {/each}
-        {:else}
-            <h4>No hay resultados</h4>
-        {/if}
+  <button><a href="/">Volver</a></button>
+  <div class="container-movies">
+    {#if moviesOfMongo !== undefined}
+      {#each moviesOfMongo as movie}
+      <div class="movie-card">
+        <a href= "./movie/${movie.title}">
+            <img alt="" src="{movie.Poster}">
+            <h2>{movie.title}</h2>
+            <p>{movie.Year}</p>
+            <p>{movie.Type}</p>
+        </a> 
       </div>
+      {/each}
+    {:else}
+        <h4>No hay resultados</h4>
+    {/if}
+  </div>
 </main>
 
 

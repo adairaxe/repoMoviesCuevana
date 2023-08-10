@@ -1,5 +1,4 @@
 <script>
-  import axios from "axios";
   import Post , { loadMovie } from "../../requestAxios/post.svelte";
 
   let requed_films = [];
@@ -14,34 +13,16 @@
           .then(response => {
               requed_films = response.Search;
           });
-        console.log(requed_films);
     }catch(e){
         console.error(e);
     }
   }
-
-  /* const loadMovie = async (titleOfMovie) => {
-    try{
-      let movieToSave = requed_films.find((element) => element.Title == titleOfMovie)
-      const body = {
-        title:movieToSave.Title,
-        Year:movieToSave.Year,
-        imdbID:movieToSave.imdbID,
-        Type:movieToSave.Type,
-        Poster:movieToSave.Poster,
-      }
-      let response= await axios.post(url, body);
-      console.log(response);
-    }catch(e){
-        console.log(e);
-    }
-  } */
-
 </script>
 
 
 <main>
   <div>
+    <button><a href="/">Volver</a></button>
     <input id="input_film" type="text" placeholder="Nombre de pelicula" bind:value={input_word}>
     <button on:click={pullMoviesRequired}>Buscar</button>
   </div>

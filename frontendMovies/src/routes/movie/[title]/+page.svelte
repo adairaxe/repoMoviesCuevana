@@ -12,7 +12,6 @@
         try{
             let response = await axios.get(url+`${movieTitle}`);
             movieSelect = response.data[0];
-            console.log(movieSelect);
         }catch(e){
             console.log(e);
         }
@@ -23,18 +22,19 @@
 
 
 <main>
-    <div class="container-movies">
-        {#if movieSelect !== undefined}
-          <div class="movie-card">
-            <img alt="" src="{movieSelect.Poster}">
-            <h2>{movieSelect.title}</h2>
-            <p>{movieSelect.Year}</p>
-            <p>{movieSelect.Type}</p>
-          </div>
-        {:else}
-            <h4>No hay resultados</h4>
-        {/if}
+  <button><a href="/">Volver</a></button>
+  <div class="container-movies">
+    {#if movieSelect !== undefined}
+      <div class="movie-card">
+        <img alt="" src="{movieSelect.Poster}">
+        <h2>{movieSelect.title}</h2>
+        <p>{movieSelect.Year}</p>
+        <p>{movieSelect.Type}</p>
       </div>
+    {:else}
+        <h4>No hay resultados</h4>
+    {/if}
+  </div>
 </main>
 
 

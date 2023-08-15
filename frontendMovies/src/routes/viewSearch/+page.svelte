@@ -1,9 +1,8 @@
 <script>
-  import Post , { loadMovie } from "../../requestAxios/post.svelte";
+  import Post , { loadMovie, loadMovie2 } from "../../requestAxios/post.svelte";
 
   let requed_films = [];
   let input_word;
-  const url = "http://127.0.0.1:3000/api/movies/";
 
   async function pullMoviesRequired(){
     const url = `http://www.omdbapi.com/?s=${input_word}&apikey=3e208a57`;
@@ -35,7 +34,7 @@
         <h2>{movie.Title}</h2>
         <p>{movie.Year}</p>
         <p>{movie.Type}</p>
-        <button on:click={() => loadMovie(`${movie.Title}` , requed_films)}>Guardar a repositorio</button>
+        <button on:click={() => loadMovie2(`${movie.Title}` , requed_films)}>Guardar a repositorio</button>
       </div>
       {/each}
     {:else}
